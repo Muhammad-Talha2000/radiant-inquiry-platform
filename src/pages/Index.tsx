@@ -167,6 +167,12 @@ const Index = () => {
         </div>
       </section>
 
+      {/* RESULTS */}
+      <ResultsSection />
+
+      {/* COMPARISON */}
+      <ComparisonSection />
+
       {/* WHY US */}
       <section className="container py-20">
         <div className="glass-card p-8 md:p-12 grid lg:grid-cols-2 gap-10 items-center">
@@ -215,6 +221,9 @@ const Index = () => {
 
       {/* PRICING */}
       <PricingSection />
+
+      {/* FAQ */}
+      <FaqSection />
 
       {/* CTA / LEAD */}
       <section className="container py-20">
