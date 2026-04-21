@@ -39,7 +39,7 @@ const process = [
   { n: "04", t: "Scale & report", d: "Monthly reporting + AI search visibility tracking as you grow." },
 ];
 
-const logos = ["NOVA", "Lumen", "Quantra", "Helio", "Stack9", "Orbit", "Vega", "Pulse"];
+
 
 const Index = () => {
   const jsonLd = {
