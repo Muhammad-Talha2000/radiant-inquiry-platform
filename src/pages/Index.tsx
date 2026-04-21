@@ -105,17 +105,10 @@ const Index = () => {
           <p className="mt-6 text-xs text-muted-foreground">Trusted by 150+ brands worldwide</p>
         </div>
 
-        {/* Logo marquee */}
-        <div className="relative overflow-hidden border-y border-border/60 bg-background/40 backdrop-blur-sm">
-          <div className="flex animate-marquee gap-16 py-6 whitespace-nowrap">
-            {[...logos, ...logos, ...logos].map((l, i) => (
-              <span key={i} className="font-display text-xl font-semibold text-muted-foreground/60">
-                {l}
-              </span>
-            ))}
-          </div>
-        </div>
       </section>
+
+      {/* INDUSTRIES strip */}
+      <IndustriesStrip />
 
       {/* STATS */}
       <section className="container py-20">
@@ -129,7 +122,8 @@ const Index = () => {
         </div>
       </section>
 
-      {/* SERVICES */}
+      {/* AI SEARCH MOCKUP */}
+      <AISearchMockup />
       <section id="services" className="container py-20">
         <SectionHeading
           eyebrow="Our Services"
