@@ -5,6 +5,11 @@ import { Seo } from "@/components/Seo";
 import { SectionHeading } from "@/components/SectionHeading";
 import { LeadForm } from "@/components/LeadForm";
 import { PricingSection } from "@/components/PricingSection";
+import { AISearchMockup } from "@/components/AISearchMockup";
+import { ResultsSection } from "@/components/ResultsSection";
+import { ComparisonSection } from "@/components/ComparisonSection";
+import { FaqSection } from "@/components/FaqSection";
+import { IndustriesStrip } from "@/components/IndustriesStrip";
 import { CAL_LINK } from "@/lib/cal";
 import heroGlow from "@/assets/hero-glow.jpg";
 import {
@@ -34,7 +39,7 @@ const process = [
   { n: "04", t: "Scale & report", d: "Monthly reporting + AI search visibility tracking as you grow." },
 ];
 
-const logos = ["NOVA", "Lumen", "Quantra", "Helio", "Stack9", "Orbit", "Vega", "Pulse"];
+
 
 const Index = () => {
   const jsonLd = {
@@ -100,17 +105,10 @@ const Index = () => {
           <p className="mt-6 text-xs text-muted-foreground">Trusted by 150+ brands worldwide</p>
         </div>
 
-        {/* Logo marquee */}
-        <div className="relative overflow-hidden border-y border-border/60 bg-background/40 backdrop-blur-sm">
-          <div className="flex animate-marquee gap-16 py-6 whitespace-nowrap">
-            {[...logos, ...logos, ...logos].map((l, i) => (
-              <span key={i} className="font-display text-xl font-semibold text-muted-foreground/60">
-                {l}
-              </span>
-            ))}
-          </div>
-        </div>
       </section>
+
+      {/* INDUSTRIES strip */}
+      <IndustriesStrip />
 
       {/* STATS */}
       <section className="container py-20">
@@ -124,7 +122,8 @@ const Index = () => {
         </div>
       </section>
 
-      {/* SERVICES */}
+      {/* AI SEARCH MOCKUP */}
+      <AISearchMockup />
       <section id="services" className="container py-20">
         <SectionHeading
           eyebrow="Our Services"
@@ -167,6 +166,12 @@ const Index = () => {
           ))}
         </div>
       </section>
+
+      {/* RESULTS */}
+      <ResultsSection />
+
+      {/* COMPARISON */}
+      <ComparisonSection />
 
       {/* WHY US */}
       <section className="container py-20">
@@ -216,6 +221,9 @@ const Index = () => {
 
       {/* PRICING */}
       <PricingSection />
+
+      {/* FAQ */}
+      <FaqSection />
 
       {/* CTA / LEAD */}
       <section className="container py-20">
