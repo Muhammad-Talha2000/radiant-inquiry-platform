@@ -1,6 +1,8 @@
 import { Seo } from "@/components/Seo";
 import { LeadForm } from "@/components/LeadForm";
-import { Mail, MessageCircle, Clock, MapPin } from "lucide-react";
+import { Mail, MessageCircle, Clock, MapPin, Calendar } from "lucide-react";
+import { Button } from "@/components/ui/button";
+import { CAL_LINK } from "@/lib/cal";
 
 const Contact = () => (
   <>
@@ -18,6 +20,13 @@ const Contact = () => (
       <p className="mx-auto mt-5 max-w-2xl text-muted-foreground">
         Tell us about your goals — we'll send back a free audit with quick wins and a 90-day roadmap.
       </p>
+      <div className="mt-7">
+        <Button asChild variant="hero" size="lg">
+          <a href={CAL_LINK} target="_blank" rel="noopener noreferrer">
+            <Calendar className="h-4 w-4" /> Book a call on Cal.com
+          </a>
+        </Button>
+      </div>
     </section>
 
     <section className="container py-12 grid lg:grid-cols-5 gap-8">

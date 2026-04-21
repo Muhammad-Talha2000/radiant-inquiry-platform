@@ -117,7 +117,11 @@ const Services = () => (
         <h2 className="font-display text-3xl md:text-4xl font-bold text-gradient">Not sure where to start?</h2>
         <p className="mt-3 text-muted-foreground max-w-xl mx-auto">Book a 30-min call. We'll recommend the right mix for your goals — no pressure.</p>
         <div className="mt-6 flex justify-center gap-3">
-          <Button asChild variant="hero" size="lg"><Link to="/contact">Book a free call <ArrowRight className="h-4 w-4" /></Link></Button>
+          <Button asChild variant="hero" size="lg">
+            <a href="https://cal.com/rankly" target="_blank" rel="noopener noreferrer">
+              Book a free call <ArrowRight className="h-4 w-4" />
+            </a>
+          </Button>
         </div>
       </div>
     </section>
