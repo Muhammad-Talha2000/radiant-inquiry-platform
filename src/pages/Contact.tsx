@@ -1,6 +1,8 @@
 import { Seo } from "@/components/Seo";
 import { LeadForm } from "@/components/LeadForm";
-import { Mail, MessageCircle, Clock, MapPin } from "lucide-react";
+import { Mail, MessageCircle, Clock, MapPin, Calendar } from "lucide-react";
+import { Button } from "@/components/ui/button";
+import { CAL_LINK } from "@/lib/cal";
 
 const Contact = () => (
   <>
