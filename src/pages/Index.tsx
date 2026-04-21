@@ -5,6 +5,11 @@ import { Seo } from "@/components/Seo";
 import { SectionHeading } from "@/components/SectionHeading";
 import { LeadForm } from "@/components/LeadForm";
 import { PricingSection } from "@/components/PricingSection";
+import { AISearchMockup } from "@/components/AISearchMockup";
+import { ResultsSection } from "@/components/ResultsSection";
+import { ComparisonSection } from "@/components/ComparisonSection";
+import { FaqSection } from "@/components/FaqSection";
+import { IndustriesStrip } from "@/components/IndustriesStrip";
 import { CAL_LINK } from "@/lib/cal";
 import heroGlow from "@/assets/hero-glow.jpg";
 import {
