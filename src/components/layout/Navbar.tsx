@@ -3,6 +3,7 @@ import { useState } from "react";
 import { Menu, X, Sparkles } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { cn } from "@/lib/utils";
+import { CAL_LINK } from "@/lib/cal";
 
 const links = [
   { to: "/", label: "Home" },
@@ -47,7 +48,7 @@ export const Navbar = () => {
 
           <div className="hidden md:block">
             <Button asChild variant="hero" size="sm">
-              <Link to="/contact">Book a call</Link>
+              <a href={CAL_LINK} target="_blank" rel="noopener noreferrer">Book a call</a>
             </Button>
           </div>
 
@@ -80,7 +81,7 @@ export const Navbar = () => {
                 </NavLink>
               ))}
               <Button asChild variant="hero" className="mt-2" onClick={() => setOpen(false)}>
-                <Link to="/contact">Book a call</Link>
+                <a href={CAL_LINK} target="_blank" rel="noopener noreferrer">Book a call</a>
               </Button>
             </nav>
           </div>

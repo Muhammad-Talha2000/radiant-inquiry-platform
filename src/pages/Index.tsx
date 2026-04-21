@@ -4,6 +4,8 @@ import { Button } from "@/components/ui/button";
 import { Seo } from "@/components/Seo";
 import { SectionHeading } from "@/components/SectionHeading";
 import { LeadForm } from "@/components/LeadForm";
+import { PricingSection } from "@/components/PricingSection";
+import { CAL_LINK } from "@/lib/cal";
 import heroGlow from "@/assets/hero-glow.jpg";
 import {
   TrendingUp, Search, Bot, BarChart3, Globe, Zap, Target, FileText, CheckCircle2,
@@ -91,7 +93,7 @@ const Index = () => {
               </Link>
             </Button>
             <Button asChild variant="glass" size="xl">
-              <Link to="/services">View services</Link>
+              <a href={CAL_LINK} target="_blank" rel="noopener noreferrer">Book a call</a>
             </Button>
           </div>
 
@@ -211,6 +213,9 @@ const Index = () => {
           </div>
         </div>
       </section>
+
+      {/* PRICING */}
+      <PricingSection />
 
       {/* CTA / LEAD */}
       <section className="container py-20">
