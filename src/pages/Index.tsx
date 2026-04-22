@@ -86,8 +86,8 @@ const Index = () => {
             <span className="text-muted-foreground">New — AI SEO for ChatGPT & Perplexity</span>
           </div>
 
-          <h1 className="mt-6 font-display text-4xl sm:text-5xl md:text-6xl lg:text-7xl font-bold tracking-tight text-gradient animate-fade-in">
-            SEO & AI SEO that<br />
+          <h1 className="mt-6 font-display text-4xl sm:text-5xl md:text-6xl lg:text-7xl font-bold tracking-tight animate-fade-in">
+            <span className="text-gradient">SEO & AI SEO that</span><br />
             <span className="text-gradient-animated">drives real growth.</span>
           </h1>
 
