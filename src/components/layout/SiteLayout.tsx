@@ -2,7 +2,6 @@ import { useEffect } from "react";
 import { useLocation } from "react-router-dom";
 import { Navbar } from "./Navbar";
 import { Footer } from "./Footer";
-import { WhatsAppButton } from "./WhatsAppButton";
 
 interface SiteLayoutProps {
   children: React.ReactNode;
@@ -26,7 +25,6 @@ export const SiteLayout = ({ children }: SiteLayoutProps) => {
       <Navbar />
       <main className="pt-24">{children}</main>
       <Footer />
-      <WhatsAppButton />
     </div>
   );
 };
