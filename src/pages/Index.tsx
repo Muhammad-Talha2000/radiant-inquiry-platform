@@ -64,10 +64,10 @@ const Index = () => {
       />
 
       {/* HERO */}
-      <section className="relative overflow-hidden">
-        <div className="aurora-bg -z-10" aria-hidden />
+      <section className="relative overflow-hidden isolate">
+        <div className="aurora-bg z-0" aria-hidden />
         <div
-          className="pointer-events-none absolute inset-0 -z-10 opacity-70"
+          className="pointer-events-none absolute inset-0 z-0 opacity-70"
           style={{
             backgroundImage: `url(${heroGlow})`,
             backgroundSize: "cover",
@@ -78,7 +78,7 @@ const Index = () => {
           aria-hidden
         />
 
-        <div className="container pt-12 md:pt-20 pb-24 text-center relative">
+        <div className="container pt-12 md:pt-20 pb-24 text-center relative z-10">
           <div className="inline-flex items-center gap-2 rounded-full border border-border bg-secondary/60 px-3 py-1 text-xs backdrop-blur-md animate-fade-in">
             <span className="grid h-5 w-5 place-items-center rounded-full bg-gradient-primary animate-glow-pulse">
               <Sparkles className="h-3 w-3 text-primary-foreground" />
@@ -86,8 +86,8 @@ const Index = () => {
             <span className="text-muted-foreground">New — AI SEO for ChatGPT & Perplexity</span>
           </div>
 
-          <h1 className="mt-6 font-display text-4xl sm:text-5xl md:text-6xl lg:text-7xl font-bold tracking-tight text-gradient animate-fade-in">
-            SEO & AI SEO that<br />
+          <h1 className="mt-6 font-display text-4xl sm:text-5xl md:text-6xl lg:text-7xl font-bold tracking-tight animate-fade-in">
+            <span className="text-gradient">SEO & AI SEO that</span><br />
             <span className="text-gradient-animated">drives real growth.</span>
           </h1>
 
