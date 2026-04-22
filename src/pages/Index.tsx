@@ -10,6 +10,9 @@ import { ResultsSection } from "@/components/ResultsSection";
 import { ComparisonSection } from "@/components/ComparisonSection";
 import { FaqSection } from "@/components/FaqSection";
 import { IndustriesStrip } from "@/components/IndustriesStrip";
+import { TestimonialsSection } from "@/components/TestimonialsSection";
+import { LogoTicker } from "@/components/LogoTicker";
+import { Reveal } from "@/components/Reveal";
 import { CAL_LINK } from "@/lib/cal";
 import heroGlow from "@/assets/hero-glow.jpg";
 import {
@@ -61,7 +64,8 @@ const Index = () => {
       />
 
       {/* HERO */}
-      <section className="relative">
+      <section className="relative overflow-hidden">
+        <div className="aurora-bg -z-10" aria-hidden />
         <div
           className="pointer-events-none absolute inset-0 -z-10 opacity-70"
           style={{
@@ -74,9 +78,9 @@ const Index = () => {
           aria-hidden
         />
 
-        <div className="container pt-12 md:pt-20 pb-24 text-center">
+        <div className="container pt-12 md:pt-20 pb-24 text-center relative">
           <div className="inline-flex items-center gap-2 rounded-full border border-border bg-secondary/60 px-3 py-1 text-xs backdrop-blur-md animate-fade-in">
-            <span className="grid h-5 w-5 place-items-center rounded-full bg-gradient-primary">
+            <span className="grid h-5 w-5 place-items-center rounded-full bg-gradient-primary animate-glow-pulse">
               <Sparkles className="h-3 w-3 text-primary-foreground" />
             </span>
             <span className="text-muted-foreground">New — AI SEO for ChatGPT & Perplexity</span>
@@ -84,7 +88,7 @@ const Index = () => {
 
           <h1 className="mt-6 font-display text-4xl sm:text-5xl md:text-6xl lg:text-7xl font-bold tracking-tight text-gradient animate-fade-in">
             SEO & AI SEO that<br />
-            <span className="text-gradient-primary">drives real growth.</span>
+            <span className="text-gradient-animated">drives real growth.</span>
           </h1>
 
           <p className="mx-auto mt-6 max-w-2xl text-base md:text-lg text-muted-foreground animate-fade-in">
@@ -106,6 +110,9 @@ const Index = () => {
         </div>
 
       </section>
+
+      {/* LOGO TICKER */}
+      <LogoTicker />
 
       {/* INDUSTRIES strip */}
       <IndustriesStrip />
@@ -132,14 +139,16 @@ const Index = () => {
         />
 
         <div className="mt-14 grid md:grid-cols-2 lg:grid-cols-3 gap-5">
-          {services.map((s) => (
-            <div key={s.title} className="glass-card p-6 hover:border-primary/40 transition-all duration-300 group">
-              <div className="grid h-11 w-11 place-items-center rounded-xl bg-gradient-primary shadow-glow mb-4 group-hover:scale-110 transition-transform">
-                <s.icon className="h-5 w-5 text-primary-foreground" />
+          {services.map((s, i) => (
+            <Reveal key={s.title} delay={i * 70}>
+              <div className="glass-card p-6 hover:border-primary/50 hover:-translate-y-1 hover:shadow-glow transition-all duration-500 group h-full">
+                <div className="grid h-11 w-11 place-items-center rounded-xl bg-gradient-primary shadow-glow mb-4 group-hover:scale-110 group-hover:rotate-3 transition-transform duration-500">
+                  <s.icon className="h-5 w-5 text-primary-foreground" />
+                </div>
+                <h3 className="font-display text-lg font-semibold">{s.title}</h3>
+                <p className="mt-2 text-sm text-muted-foreground">{s.desc}</p>
               </div>
-              <h3 className="font-display text-lg font-semibold">{s.title}</h3>
-              <p className="mt-2 text-sm text-muted-foreground">{s.desc}</p>
-            </div>
+            </Reveal>
           ))}
         </div>
 
@@ -157,15 +166,20 @@ const Index = () => {
           title="A clear path from audit to compounding growth"
         />
         <div className="mt-14 grid md:grid-cols-2 lg:grid-cols-4 gap-5">
-          {process.map((p) => (
-            <div key={p.n} className="glass-card p-6">
-              <span className="font-display text-sm text-primary">{p.n}</span>
-              <h3 className="mt-2 font-display text-lg font-semibold">{p.t}</h3>
-              <p className="mt-2 text-sm text-muted-foreground">{p.d}</p>
-            </div>
+          {process.map((p, i) => (
+            <Reveal key={p.n} delay={i * 80}>
+              <div className="glass-card p-6 h-full hover:border-primary/40 hover:-translate-y-1 transition-all duration-500">
+                <span className="font-display text-sm text-primary">{p.n}</span>
+                <h3 className="mt-2 font-display text-lg font-semibold">{p.t}</h3>
+                <p className="mt-2 text-sm text-muted-foreground">{p.d}</p>
+              </div>
+            </Reveal>
           ))}
         </div>
       </section>
+
+      {/* TESTIMONIALS */}
+      <TestimonialsSection />
 
       {/* RESULTS */}
       <ResultsSection />
