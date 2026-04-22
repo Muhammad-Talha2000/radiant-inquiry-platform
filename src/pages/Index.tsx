@@ -78,7 +78,7 @@ const Index = () => {
           aria-hidden
         />
 
-        <div className="container pt-12 md:pt-20 pb-24 text-center relative">
+        <div className="container pt-12 md:pt-20 pb-24 text-center relative z-10">
           <div className="inline-flex items-center gap-2 rounded-full border border-border bg-secondary/60 px-3 py-1 text-xs backdrop-blur-md animate-fade-in">
             <span className="grid h-5 w-5 place-items-center rounded-full bg-gradient-primary animate-glow-pulse">
               <Sparkles className="h-3 w-3 text-primary-foreground" />
