@@ -64,10 +64,10 @@ const Index = () => {
       />
 
       {/* HERO */}
-      <section className="relative overflow-hidden">
-        <div className="aurora-bg -z-10" aria-hidden />
+      <section className="relative overflow-hidden isolate">
+        <div className="aurora-bg z-0" aria-hidden />
         <div
-          className="pointer-events-none absolute inset-0 -z-10 opacity-70"
+          className="pointer-events-none absolute inset-0 z-0 opacity-70"
           style={{
             backgroundImage: `url(${heroGlow})`,
             backgroundSize: "cover",
