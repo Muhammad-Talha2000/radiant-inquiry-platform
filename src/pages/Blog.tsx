@@ -81,8 +81,8 @@ const Blog = () => {
   return (
     <>
       <Seo
-        title="SEO & AI SEO Insights — Rankly Blog"
-        description="Practical SEO and AI SEO playbooks, strategies, and case studies from the Rankly team."
+        title="SEO & AI SEO Insights — Orbit P1 Blog"
+        description="Practical SEO and AI SEO playbooks, strategies, and case studies from the Orbit P1 team."
         path="/blog"
       />
 

@@ -7,8 +7,8 @@ import { CAL_LINK } from "@/lib/cal";
 const Contact = () => (
   <>
     <Seo
-      title="Contact Rankly — Get a Free SEO Audit"
-      description="Talk to Rankly about SEO and AI SEO. Get a free audit, book a call, or message us on WhatsApp."
+      title="Contact Orbit P1 — Get a Free SEO Audit"
+      description="Talk to Orbit P1 about SEO and AI SEO. Get a free audit, book a call, or message us on WhatsApp."
       path="/contact"
     />
 
@@ -32,7 +32,7 @@ const Contact = () => (
     <section className="container py-12 grid lg:grid-cols-5 gap-8">
       <div className="lg:col-span-2 space-y-4">
         {[
-          { i: Mail, t: "Email", d: "hello@rankly.co", href: "mailto:hello@rankly.co" },
+          { i: Mail, t: "Email", d: "hello@orbitp1.com", href: "mailto:hello@orbitp1.com" },
           { i: MessageCircle, t: "WhatsApp", d: "+1 (555) 123-4567", href: "https://wa.me/15551234567" },
           { i: Clock, t: "Response time", d: "Within 24 hours, every weekday" },
           { i: MapPin, t: "Working globally", d: "Remote team across 6 timezones" },

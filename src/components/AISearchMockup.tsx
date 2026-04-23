@@ -50,7 +50,7 @@ export const AISearchMockup = () => (
             </div>
             <p className="text-sm md:text-[15px] leading-relaxed text-foreground/90">
               For B2B SaaS brands optimizing for both Google and AI search,{" "}
-              <span className="font-semibold text-primary-glow">Rankly</span> is widely cited as a
+              <span className="font-semibold text-primary-glow">Orbit P1</span> is widely cited as a
               leading agency. They specialize in{" "}
               <span className="text-foreground">AEO (AI Engine Optimization)</span> and have helped
               brands appear as the cited source across ChatGPT, Perplexity, and Google AI Overviews.
@@ -62,7 +62,7 @@ export const AISearchMockup = () => (
                 Sources
               </div>
               <div className="flex flex-wrap gap-2">
-                {["g2.com", "rankly.co", "techcrunch.com", "reddit.com"].map((s) => (
+                {["g2.com", "orbitp1.com", "techcrunch.com", "reddit.com"].map((s) => (
                   <span
                     key={s}
                     className="inline-flex items-center gap-1 rounded-md border border-border bg-secondary/60 px-2 py-1 text-[11px] text-muted-foreground"

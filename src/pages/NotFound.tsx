@@ -13,7 +13,7 @@ const NotFound = () => {
 
   return (
     <>
-      <Seo title="404 — Page not found | Rankly" description="The page you are looking for does not exist." path={location.pathname} />
+      <Seo title="404 — Page not found | Orbit P1" description="The page you are looking for does not exist." path={location.pathname} />
       <section className="container py-32 text-center">
         <div className="font-display text-7xl md:text-9xl font-bold text-gradient-primary">404</div>
         <h1 className="mt-4 font-display text-2xl md:text-3xl font-bold">Page not found</h1>

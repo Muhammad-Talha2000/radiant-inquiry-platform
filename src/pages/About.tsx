@@ -21,8 +21,8 @@ const team = [
 const About = () => (
   <>
     <Seo
-      title="About Rankly — SEO & AI SEO Experts"
-      description="Meet the team behind Rankly. We help modern brands win search with strategy-led SEO and AI search optimization."
+      title="About Orbit P1 — SEO & AI SEO Experts"
+      description="Meet the team behind Orbit P1. We help modern brands win search with strategy-led SEO and AI search optimization."
       path="/about"
     />
 
@@ -32,7 +32,7 @@ const About = () => (
         We help brands <span className="text-gradient-primary">win search</span>
       </h1>
       <p className="mx-auto mt-5 max-w-2xl text-muted-foreground">
-        Rankly is a modern SEO agency for the AI era. We blend technical depth, creative content, and AI search optimization to grow brands sustainably.
+        Orbit P1 is a modern SEO agency for the AI era. We blend technical depth, creative content, and AI search optimization to grow brands sustainably.
       </p>
     </section>
 
@@ -41,7 +41,7 @@ const About = () => (
         <div className="glass-card p-8">
           <h2 className="font-display text-2xl md:text-3xl font-bold">Our story</h2>
           <p className="mt-4 text-muted-foreground">
-            We started Rankly because most SEO agencies optimize for impressions — not pipeline. Our team has helped 150+ brands rank, convert and scale with measurable revenue impact.
+            We started Orbit P1 because most SEO agencies optimize for impressions — not pipeline. Our team has helped 150+ brands rank, convert and scale with measurable revenue impact.
           </p>
           <p className="mt-4 text-muted-foreground">
             Today we help SaaS, ecommerce and service brands compete in both classic Google search and the new AI-driven search landscape (ChatGPT, Perplexity, Google AI Overviews).
