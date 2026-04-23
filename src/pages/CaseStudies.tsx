@@ -38,8 +38,8 @@ const cases = [
 const CaseStudies = () => (
   <>
     <Seo
-      title="Case Studies — Rankly SEO & AI SEO Results"
-      description="Real SEO and AI SEO case studies from Rankly. See how we've grown organic traffic, pipeline and AI search visibility."
+      title="Case Studies — Orbit P1 SEO & AI SEO Results"
+      description="Real SEO and AI SEO case studies from Orbit P1. See how we've grown organic traffic, pipeline and AI search visibility."
       path="/case-studies"
     />
 

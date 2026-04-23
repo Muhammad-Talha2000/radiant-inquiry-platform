@@ -66,12 +66,12 @@ serve(async (req: Request) => {
     if (!RESEND_API_KEY) throw new Error("RESEND_API_KEY is not configured");
 
     // @ts-expect-error Deno global
-    const NOTIFY_EMAIL = Deno.env.get("LEAD_NOTIFY_EMAIL") ?? "hello@rankly.co";
+    const NOTIFY_EMAIL = Deno.env.get("LEAD_NOTIFY_EMAIL") ?? "hello@orbitp1.com";
 
     const payload = validate(await req.json());
 
     const html = `
-      <h2>New Rankly lead</h2>
+      <h2>New Orbit P1 lead</h2>
       <p><strong>Name:</strong> ${escapeHtml(payload.name)}</p>
       <p><strong>Email:</strong> ${escapeHtml(payload.email)}</p>
       ${payload.website ? `<p><strong>Website:</strong> ${escapeHtml(payload.website)}</p>` : ""}
@@ -87,7 +87,7 @@ serve(async (req: Request) => {
         "X-Connection-Api-Key": RESEND_API_KEY,
       },
       body: JSON.stringify({
-        from: "Rankly <onboarding@resend.dev>",
+        from: "Orbit P1 <onboarding@resend.dev>",
         to: [NOTIFY_EMAIL],
         reply_to: payload.email,
         subject: `New lead: ${payload.name}`,

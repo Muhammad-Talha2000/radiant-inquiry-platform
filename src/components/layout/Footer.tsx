@@ -1,5 +1,6 @@
 import { Link } from "react-router-dom";
-import { Sparkles, Linkedin, Twitter, Github } from "lucide-react";
+import { Linkedin, Twitter, Github } from "lucide-react";
+import logoOrbit from "@/assets/logo-orbit-p1-v2-growth.png";
 
 export const Footer = () => {
   return (
@@ -8,13 +9,11 @@ export const Footer = () => {
         <div className="grid gap-12 md:grid-cols-4">
           <div className="md:col-span-2 space-y-4">
             <Link to="/" className="flex items-center gap-2 font-display font-bold">
-              <span className="grid h-8 w-8 place-items-center rounded-lg bg-gradient-primary shadow-glow">
-                <Sparkles className="h-4 w-4 text-primary-foreground" />
-              </span>
-              <span>Rankly</span>
+              <img src={logoOrbit} alt="Orbit P1 logo" className="h-9 w-9 rounded-lg object-contain" />
+              <span>Orbit P1</span>
             </Link>
             <p className="text-sm text-muted-foreground max-w-sm">
-              Modern SEO and AI SEO agency helping ambitious brands rank, convert and scale with measurable growth.
+              SEO and AI SEO agency turning search visibility into qualified leads, sales and measurable revenue growth.
             </p>
             <div className="flex gap-3 pt-2">
               {[Linkedin, Twitter, Github].map((Icon, i) => (
@@ -45,13 +44,13 @@ export const Footer = () => {
             <ul className="space-y-2 text-sm text-muted-foreground">
               <li><Link to="/contact" className="hover:text-foreground">Free SEO audit</Link></li>
               <li><Link to="/contact" className="hover:text-foreground">Book a call</Link></li>
-              <li><a href="mailto:hello@rankly.co" className="hover:text-foreground">hello@rankly.co</a></li>
+              <li><a href="mailto:hello@orbitp1.com" className="hover:text-foreground">hello@orbitp1.com</a></li>
             </ul>
           </div>
         </div>
 
         <div className="mt-12 pt-6 border-t border-border flex flex-col md:flex-row items-center justify-between gap-3 text-xs text-muted-foreground">
-          <p>© {new Date().getFullYear()} Rankly. All rights reserved.</p>
+          <p>© {new Date().getFullYear()} Orbit P1. All rights reserved.</p>
           <p>Crafted for growth.</p>
         </div>
       </div>

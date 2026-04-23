@@ -33,7 +33,7 @@ export const ComparisonSection = () => (
     <SectionHeading
       eyebrow="Traditional SEO vs AI SEO"
       title={<>The architecture has <span className="text-gradient-primary">fundamentally changed</span></>}
-      description="Old SEO playbooks weren't designed for generative engines. Here's how Rankly's AI-SEO stack compares."
+      description="Old SEO playbooks weren't designed for generative engines. Here's how Orbit P1's AI-SEO stack compares."
     />
 
     <div className="mt-12 glass-card overflow-hidden">
@@ -47,7 +47,7 @@ export const ComparisonSection = () => (
         </div>
         <div className="text-center">
           <span className="inline-flex items-center gap-1.5 rounded-full bg-gradient-primary px-3 py-1 text-[11px] font-semibold text-primary-foreground shadow-glow">
-            <Sparkles className="h-3 w-3" /> AI-SEO by Rankly
+            <Sparkles className="h-3 w-3" /> AI-SEO by Orbit P1
           </span>
         </div>
       </div>

@@ -1,9 +1,10 @@
 import { Link, NavLink } from "react-router-dom";
 import { useState } from "react";
-import { Menu, X, Sparkles } from "lucide-react";
+import { Menu, X } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { cn } from "@/lib/utils";
 import { CAL_LINK } from "@/lib/cal";
+import logoOrbit from "@/assets/logo-orbit-p1-v2-growth.png";
 
 const links = [
   { to: "/", label: "Home" },
@@ -22,10 +23,8 @@ export const Navbar = () => {
       <div className="container">
         <div className="mt-4 flex h-14 items-center justify-between rounded-full border border-border/70 bg-background/70 px-4 backdrop-blur-xl shadow-soft">
           <Link to="/" className="flex items-center gap-2 font-display font-bold text-base">
-            <span className="grid h-8 w-8 place-items-center rounded-lg bg-gradient-primary shadow-glow">
-              <Sparkles className="h-4 w-4 text-primary-foreground" />
-            </span>
-            <span>Rankly</span>
+            <img src={logoOrbit} alt="Orbit P1 logo" className="h-9 w-9 rounded-lg object-contain" />
+            <span>Orbit P1</span>
           </Link>
 
           <nav className="hidden md:flex items-center gap-1">

@@ -5,7 +5,7 @@ import { Reveal } from "@/components/Reveal";
 const testimonials = [
   {
     quote:
-      "Rankly didn't just grow our traffic — they rebuilt our entire pipeline. We're now cited in ChatGPT answers for our top buyer questions.",
+      "Orbit P1 didn't just grow our traffic — they rebuilt our entire pipeline. We're now cited in ChatGPT answers for our top buyer questions.",
     name: "Priya Sharma",
     role: "Head of Growth, FinPilot",
     initial: "P",
@@ -19,7 +19,7 @@ const testimonials = [
   },
   {
     quote:
-      "Senior team, zero fluff, weekly shipping. Rankly feels like an in-house growth squad — not an agency.",
+      "Senior team, zero fluff, weekly shipping. Orbit P1 feels like an in-house growth squad — not an agency.",
     name: "Elena Rossi",
     role: "CMO, Vaultline",
     initial: "E",
