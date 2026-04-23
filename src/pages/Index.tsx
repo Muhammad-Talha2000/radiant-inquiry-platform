@@ -4,7 +4,6 @@ import { Button } from "@/components/ui/button";
 import { Seo } from "@/components/Seo";
 import { SectionHeading } from "@/components/SectionHeading";
 import { LeadForm } from "@/components/LeadForm";
-import { PricingSection } from "@/components/PricingSection";
 import { AISearchMockup } from "@/components/AISearchMockup";
 import { ResultsSection } from "@/components/ResultsSection";
 import { ComparisonSection } from "@/components/ComparisonSection";
@@ -12,53 +11,50 @@ import { FaqSection } from "@/components/FaqSection";
 import { IndustriesStrip } from "@/components/IndustriesStrip";
 import { TestimonialsSection } from "@/components/TestimonialsSection";
 import { LogoTicker } from "@/components/LogoTicker";
+import { WhoForSection } from "@/components/WhoForSection";
+import { ProblemSection } from "@/components/ProblemSection";
+import { SolutionSplit } from "@/components/SolutionSplit";
+import { OutcomesSection } from "@/components/OutcomesSection";
+import { FinalCtaBanner } from "@/components/FinalCtaBanner";
 import { Reveal } from "@/components/Reveal";
 import { CAL_LINK } from "@/lib/cal";
 import heroGlow from "@/assets/hero-glow.jpg";
 import {
-  TrendingUp, Search, Bot, BarChart3, Globe, Zap, Target, FileText, CheckCircle2,
+  Search, Bot, FileText, MapPin, ClipboardCheck, Wrench,
 } from "lucide-react";
 
-const stats = [
-  { k: "+312%", v: "Avg. organic traffic growth" },
-  { k: "150+", v: "Brands ranked on page 1" },
-  { k: "8 yrs", v: "SEO & AI search expertise" },
-  { k: "24h", v: "Response time guarantee" },
-];
-
 const services = [
-  { icon: Search, title: "Technical SEO", desc: "Core Web Vitals, crawlability, schema, and site architecture done right." },
-  { icon: Bot, title: "AI SEO", desc: "Get cited by ChatGPT, Perplexity, Gemini and Google AI Overviews." },
-  { icon: FileText, title: "Content & E-E-A-T", desc: "Topical authority, expert content, and entity-driven SEO content." },
-  { icon: TrendingUp, title: "Link Building", desc: "Editorial backlinks from real, relevant publications — zero spam." },
-  { icon: Globe, title: "Local & International", desc: "Multi-region, multi-language SEO that converts where you sell." },
-  { icon: BarChart3, title: "SEO Analytics", desc: "Dashboards that show pipeline impact, not just rankings." },
+  { icon: Search, title: "SEO Optimization", desc: "Rankings, traffic and conversions across Google." },
+  { icon: Bot, title: "AI SEO Strategy", desc: "Visibility on ChatGPT, Perplexity and AI Overviews." },
+  { icon: Wrench, title: "Technical SEO", desc: "Site speed, crawlability, schema, Core Web Vitals." },
+  { icon: FileText, title: "Content SEO", desc: "Topic clusters and content built around buyer intent." },
+  { icon: MapPin, title: "Local SEO", desc: "Get found by nearby customers ready to buy." },
+  { icon: ClipboardCheck, title: "SEO Audit", desc: "Diagnose every gap holding your rankings back." },
 ];
 
 const process = [
-  { n: "01", t: "Free SEO audit", d: "We diagnose technical, content and authority gaps holding your site back." },
-  { n: "02", t: "Growth roadmap", d: "A 90-day prioritized plan tied to revenue, not vanity metrics." },
-  { n: "03", t: "Execution", d: "Our team ships fixes, content, and links weekly with full transparency." },
-  { n: "04", t: "Scale & report", d: "Monthly reporting + AI search visibility tracking as you grow." },
+  { n: "01", t: "SEO audit & analysis", d: "Full website + competitor diagnosis to find growth gaps." },
+  { n: "02", t: "Strategy development", d: "A SEO + AI roadmap aligned to your revenue goals." },
+  { n: "03", t: "Implementation", d: "Technical, on-page and content execution every week." },
+  { n: "04", t: "Optimization & ranking growth", d: "Continuous improvements that compound month over month." },
+  { n: "05", t: "Scaling & conversion tracking", d: "Expand keywords, content and pipeline impact." },
 ];
-
-
 
 const Index = () => {
   const jsonLd = {
     "@context": "https://schema.org",
     "@type": "Organization",
-    name: "Rankly",
+    name: "Orbit P1",
     url: typeof window !== "undefined" ? window.location.origin : "/",
-    description: "SEO and AI SEO agency for modern brands.",
+    description: "SEO and AI SEO agency turning search visibility into real customers and revenue.",
     sameAs: [],
   };
 
   return (
     <>
       <Seo
-        title="Rankly — SEO & AI SEO Agency that Drives Real Growth"
-        description="Modern SEO and AI SEO agency. Rank on Google and get cited in ChatGPT, Perplexity, and AI Overviews. Get a free SEO audit."
+        title="Orbit P1 — SEO & AI SEO Agency for Business Growth"
+        description="Turn search visibility into real customers. Orbit P1 combines proven SEO with AI-powered search optimization to drive rankings, leads and revenue."
         path="/"
         jsonLd={jsonLd}
       />
@@ -83,71 +79,74 @@ const Index = () => {
             <span className="grid h-5 w-5 place-items-center rounded-full bg-gradient-primary animate-glow-pulse">
               <Sparkles className="h-3 w-3 text-primary-foreground" />
             </span>
-            <span className="text-muted-foreground">New — AI SEO for ChatGPT & Perplexity</span>
+            <span className="text-muted-foreground">SEO + AI SEO built for business growth</span>
           </div>
 
           <h1 className="mt-6 font-display text-4xl sm:text-5xl md:text-6xl lg:text-7xl font-bold tracking-tight animate-fade-in">
-            <span className="text-gradient">SEO & AI SEO that</span><br />
-            <span className="text-gradient-animated">drives real growth.</span>
+            <span className="text-gradient">Turn search visibility into</span><br />
+            <span className="text-gradient-animated">real business growth.</span>
           </h1>
 
           <p className="mx-auto mt-6 max-w-2xl text-base md:text-lg text-muted-foreground animate-fade-in">
-            We help ambitious brands rank on Google and get cited by AI search engines like ChatGPT, Perplexity, and Google AI Overviews — with measurable pipeline impact.
+            We help businesses generate more customers through advanced SEO and AI-powered search optimization that improves rankings, traffic, and conversions.
           </p>
 
           <div className="mt-8 flex flex-col sm:flex-row gap-3 justify-center animate-fade-in">
             <Button asChild variant="hero" size="xl">
-              <Link to="/contact">
-                Get a free SEO audit <ArrowRight className="h-4 w-4" />
-              </Link>
+              <a href={CAL_LINK} target="_blank" rel="noopener noreferrer">
+                Book a free strategy call <ArrowRight className="h-4 w-4" />
+              </a>
             </Button>
             <Button asChild variant="glass" size="xl">
-              <a href={CAL_LINK} target="_blank" rel="noopener noreferrer">Book a call</a>
+              <Link to="/contact">Get free SEO audit</Link>
             </Button>
           </div>
 
-          <p className="mt-6 text-xs text-muted-foreground">Trusted by 150+ brands worldwide</p>
+          <p className="mt-6 text-xs text-muted-foreground">Trusted by growing brands across 4 continents</p>
         </div>
-
       </section>
 
-      {/* LOGO TICKER */}
+      {/* TOOL STACK TICKER */}
       <LogoTicker />
 
       {/* INDUSTRIES strip */}
       <IndustriesStrip />
 
-      {/* STATS */}
-      <section className="container py-20">
-        <div className="grid grid-cols-2 md:grid-cols-4 gap-px bg-border rounded-2xl overflow-hidden border border-border">
-          {stats.map((s) => (
-            <div key={s.v} className="bg-card p-6 md:p-8 text-center">
-              <div className="font-display text-3xl md:text-4xl font-bold text-gradient-primary">{s.k}</div>
-              <div className="mt-2 text-sm text-muted-foreground">{s.v}</div>
-            </div>
-          ))}
-        </div>
-      </section>
+      {/* WHO IT'S FOR */}
+      <WhoForSection />
+
+      {/* PROBLEM */}
+      <ProblemSection />
+
+      {/* SOLUTION SPLIT (SEO + AI SEO) */}
+      <SolutionSplit />
 
       {/* AI SEARCH MOCKUP */}
       <AISearchMockup />
+
+      {/* SERVICES PREVIEW */}
       <section id="services" className="container py-20">
         <SectionHeading
-          eyebrow="Our Services"
-          title={<>SEO solutions built for the <span className="text-gradient-primary">AI era</span></>}
-          description="A full-stack SEO offering — from technical foundations to AI search visibility — designed to compound growth."
+          eyebrow="Services preview"
+          title={<>A full <span className="text-gradient-primary">search growth system</span></>}
+          description="Pick a single service or combine them into a complete SEO + AI SEO engine."
         />
 
         <div className="mt-14 grid md:grid-cols-2 lg:grid-cols-3 gap-5">
           {services.map((s, i) => (
             <Reveal key={s.title} delay={i * 70}>
-              <div className="glass-card p-6 hover:border-primary/50 hover:-translate-y-1 hover:shadow-glow transition-all duration-500 group h-full">
-                <div className="grid h-11 w-11 place-items-center rounded-xl bg-gradient-primary shadow-glow mb-4 group-hover:scale-110 group-hover:rotate-3 transition-transform duration-500">
-                  <s.icon className="h-5 w-5 text-primary-foreground" />
+              <Link to="/services" className="block h-full">
+                <div className="glass-card p-6 hover:border-primary/50 hover:-translate-y-1 hover:shadow-glow transition-all duration-500 group h-full">
+                  <div className="grid h-11 w-11 place-items-center rounded-xl bg-gradient-primary shadow-glow mb-4 group-hover:scale-110 group-hover:rotate-3 transition-transform duration-500">
+                    <s.icon className="h-5 w-5 text-primary-foreground" />
+                  </div>
+                  <h3 className="font-display text-lg font-semibold">{s.title}</h3>
+                  <p className="mt-2 text-sm text-muted-foreground">{s.desc}</p>
+                  <div className="mt-4 inline-flex items-center gap-1 text-xs text-primary opacity-0 group-hover:opacity-100 transition-opacity">
+                    Learn more <ArrowRight className="h-3 w-3" />
+                  </div>
                 </div>
-                <h3 className="font-display text-lg font-semibold">{s.title}</h3>
-                <p className="mt-2 text-sm text-muted-foreground">{s.desc}</p>
-              </div>
+              </Link>
             </Reveal>
           ))}
         </div>
@@ -159,18 +158,18 @@ const Index = () => {
         </div>
       </section>
 
-      {/* PROCESS */}
+      {/* HOW IT WORKS */}
       <section className="container py-20">
         <SectionHeading
-          eyebrow="How we work"
-          title="A clear path from audit to compounding growth"
+          eyebrow="How it works"
+          title="From audit to compounding growth in 5 steps"
         />
-        <div className="mt-14 grid md:grid-cols-2 lg:grid-cols-4 gap-5">
+        <div className="mt-14 grid md:grid-cols-2 lg:grid-cols-5 gap-5">
           {process.map((p, i) => (
             <Reveal key={p.n} delay={i * 80}>
               <div className="glass-card p-6 h-full hover:border-primary/40 hover:-translate-y-1 transition-all duration-500">
                 <span className="font-display text-sm text-primary">{p.n}</span>
-                <h3 className="mt-2 font-display text-lg font-semibold">{p.t}</h3>
+                <h3 className="mt-2 font-display text-base font-semibold">{p.t}</h3>
                 <p className="mt-2 text-sm text-muted-foreground">{p.d}</p>
               </div>
             </Reveal>
@@ -178,79 +177,41 @@ const Index = () => {
         </div>
       </section>
 
-      {/* TESTIMONIALS */}
-      <TestimonialsSection />
+      {/* BUSINESS OUTCOMES */}
+      <OutcomesSection />
 
-      {/* RESULTS */}
+      {/* CASE STUDY PREVIEW (RESULTS) */}
       <ResultsSection />
+      <div className="container -mt-8 mb-12 text-center">
+        <Button asChild variant="outline" size="lg">
+          <Link to="/case-studies">View case studies <ArrowRight className="h-4 w-4" /></Link>
+        </Button>
+      </div>
 
       {/* COMPARISON */}
       <ComparisonSection />
 
-      {/* WHY US */}
-      <section className="container py-20">
-        <div className="glass-card p-8 md:p-12 grid lg:grid-cols-2 gap-10 items-center">
-          <div>
-            <SectionHeading
-              align="left"
-              eyebrow="Why Rankly"
-              title={<>Built for <span className="text-gradient-primary">pipeline</span>, not vanity rankings</>}
-            />
-            <ul className="mt-6 space-y-3">
-              {[
-                "Strategy tied to revenue, not just keyword positions",
-                "Hands-on senior team — no junior account managers",
-                "AI search optimization built into every engagement",
-                "Transparent reporting & weekly progress",
-                "Performance-driven content engine",
-              ].map((b) => (
-                <li key={b} className="flex items-start gap-3 text-sm">
-                  <CheckCircle2 className="h-5 w-5 text-primary mt-0.5 shrink-0" />
-                  <span>{b}</span>
-                </li>
-              ))}
-            </ul>
-            <div className="mt-8">
-              <Button asChild variant="hero">
-                <Link to="/contact">Book a strategy call <ArrowRight className="h-4 w-4" /></Link>
-              </Button>
-            </div>
-          </div>
-
-          <div className="grid grid-cols-2 gap-4">
-            {[
-              { i: Zap, t: "Fast execution" },
-              { i: Target, t: "Revenue focus" },
-              { i: Bot, t: "AI-native" },
-              { i: BarChart3, t: "Transparent" },
-            ].map(({ i: Icon, t }) => (
-              <div key={t} className="rounded-2xl border border-border bg-background/40 p-6 text-center">
-                <Icon className="h-6 w-6 mx-auto text-primary" />
-                <div className="mt-3 text-sm font-medium">{t}</div>
-              </div>
-            ))}
-          </div>
-        </div>
-      </section>
-
-      {/* PRICING */}
-      <PricingSection />
+      {/* TESTIMONIALS */}
+      <TestimonialsSection />
 
       {/* FAQ */}
       <FaqSection />
 
-      {/* CTA / LEAD */}
+      {/* LEAD GENERATION */}
       <section className="container py-20">
         <div className="grid lg:grid-cols-2 gap-10 items-center">
           <SectionHeading
             align="left"
-            eyebrow="Free SEO audit"
-            title={<>Find out what's holding your <span className="text-gradient-primary">rankings</span> back</>}
-            description="Tell us about your site and goals. We'll send back a personalized audit with quick wins and a 90-day growth plan."
+            eyebrow="Free growth plan"
+            title={<>Get a free SEO growth plan for <span className="text-gradient-primary">your business</span></>}
+            description="Tell us about your goals. We'll send back a personalized SEO + AI SEO plan with quick wins and a 90-day roadmap."
           />
           <LeadForm />
         </div>
       </section>
+
+      {/* FINAL CTA BANNER */}
+      <FinalCtaBanner />
     </>
   );
 };
