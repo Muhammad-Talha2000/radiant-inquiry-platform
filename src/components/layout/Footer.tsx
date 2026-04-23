@@ -8,9 +8,12 @@ export const Footer = () => {
       <div className="container py-16">
         <div className="grid gap-12 md:grid-cols-4">
           <div className="md:col-span-2 space-y-4">
-            <Link to="/" className="flex items-center gap-2 font-display font-bold">
-              <img src={logoOrbit} alt="Orbit P1 logo" className="h-9 w-9 rounded-lg object-contain" />
-              <span>Orbit P1</span>
+            <Link to="/" className="inline-flex items-center" aria-label="Orbit P1 home">
+              <img
+                src={logoOrbit}
+                alt="Orbit P1"
+                className="h-16 w-auto object-contain mix-blend-screen"
+              />
             </Link>
             <p className="text-sm text-muted-foreground max-w-sm">
               SEO and AI SEO agency turning search visibility into qualified leads, sales and measurable revenue growth.

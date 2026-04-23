@@ -21,10 +21,13 @@ export const Navbar = () => {
   return (
     <header className="fixed top-0 inset-x-0 z-50">
       <div className="container">
-        <div className="mt-4 flex h-14 items-center justify-between rounded-full border border-border/70 bg-background/70 px-4 backdrop-blur-xl shadow-soft">
-          <Link to="/" className="flex items-center gap-2 font-display font-bold text-base">
-            <img src={logoOrbit} alt="Orbit P1 logo" className="h-9 w-9 rounded-lg object-contain" />
-            <span>Orbit P1</span>
+        <div className="mt-4 flex h-16 items-center justify-between rounded-full border border-border/70 bg-background/70 px-4 backdrop-blur-xl shadow-soft">
+          <Link to="/" className="flex items-center gap-2" aria-label="Orbit P1 home">
+            <img
+              src={logoOrbit}
+              alt="Orbit P1"
+              className="h-12 md:h-14 w-auto object-contain mix-blend-screen"
+            />
           </Link>
 
           <nav className="hidden md:flex items-center gap-1">
