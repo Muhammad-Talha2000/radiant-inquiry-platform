@@ -218,4 +218,119 @@
     color: transparent;
     animation: gradient-shift 8s ease infinite;
   }
+
+  /* ===== Hero animated background (moving grid + glows) ===== */
+  .hero-animated-bg {
+    position: absolute;
+    inset: 0;
+    overflow: hidden;
+    pointer-events: none;
+    z-index: 0;
+  }
+  .hero-grid-move {
+    position: absolute;
+    inset: 0;
+    background-image:
+      linear-gradient(hsl(var(--primary) / 0.06) 1px, transparent 1px),
+      linear-gradient(90deg, hsl(var(--primary) / 0.06) 1px, transparent 1px);
+    background-size: 60px 60px;
+    animation: gridMove 20s linear infinite;
+    mask-image: radial-gradient(ellipse 70% 60% at 50% 40%, black 30%, transparent 80%);
+    -webkit-mask-image: radial-gradient(ellipse 70% 60% at 50% 40%, black 30%, transparent 80%);
+  }
+  @keyframes gridMove {
+    0% { background-position: 0 0; }
+    100% { background-position: 60px 60px; }
+  }
+  .hero-glow-orb {
+    position: absolute;
+    width: 800px; height: 800px;
+    border-radius: 50%;
+    background: radial-gradient(circle, hsl(var(--primary) / 0.18) 0%, transparent 70%);
+    top: -200px; right: -200px;
+    animation: orb-pulse 6s ease-in-out infinite;
+  }
+  .hero-glow-orb.alt {
+    width: 600px; height: 600px;
+    background: radial-gradient(circle, hsl(280 90% 60% / 0.16) 0%, transparent 70%);
+    top: auto; right: auto;
+    bottom: -100px; left: -100px;
+    animation: orb-pulse 8s ease-in-out infinite reverse;
+  }
+  @keyframes orb-pulse {
+    0%, 100% { transform: scale(1); opacity: 1; }
+    50% { transform: scale(1.12); opacity: 0.7; }
+  }
+
+  /* ===== Custom cursor ===== */
+  .cursor-dot {
+    position: fixed;
+    top: 0; left: 0;
+    width: 10px; height: 10px;
+    background: hsl(var(--primary));
+    border-radius: 50%;
+    pointer-events: none;
+    z-index: 9999;
+    transform: translate(-50%, -50%);
+    transition: transform 0.18s ease, width 0.25s, height 0.25s, opacity 0.3s;
+    mix-blend-mode: screen;
+    box-shadow: 0 0 12px hsl(var(--primary) / 0.6);
+  }
+  .cursor-ring {
+    position: fixed;
+    top: 0; left: 0;
+    width: 38px; height: 38px;
+    border: 1.5px solid hsl(var(--primary) / 0.5);
+    border-radius: 50%;
+    pointer-events: none;
+    z-index: 9998;
+    transform: translate(-50%, -50%);
+    transition: transform 0.2s ease, width 0.3s, height 0.3s, border-color 0.3s;
+  }
+  .cursor-dot.is-hover { transform: translate(-50%, -50%) scale(2.4); }
+  .cursor-ring.is-hover { transform: translate(-50%, -50%) scale(1.6); border-color: hsl(var(--primary)); }
+  @media (hover: none) {
+    .cursor-dot, .cursor-ring { display: none; }
+  }
+
+  /* ===== Roadmap arrows / connector ===== */
+  .roadmap-line {
+    position: absolute;
+    top: 28px;
+    left: 8%;
+    right: 8%;
+    height: 2px;
+    background: linear-gradient(90deg, hsl(var(--primary) / 0.6), hsl(var(--primary-glow) / 0.5), hsl(var(--primary) / 0.6));
+    z-index: 0;
+  }
+  .roadmap-step-dot {
+    width: 56px; height: 56px;
+    border-radius: 50%;
+    background: hsl(var(--background));
+    border: 2px solid hsl(var(--primary));
+    display: grid; place-items: center;
+    font-family: 'Space Grotesk', sans-serif;
+    color: hsl(var(--primary));
+    font-weight: 700;
+    position: relative;
+    z-index: 2;
+    transition: transform .3s, box-shadow .3s;
+  }
+  .roadmap-step-dot:hover { transform: scale(1.12); box-shadow: 0 0 28px hsl(var(--primary) / 0.4); }
+
+  /* ===== Counter / stat numbers ===== */
+  .stat-number {
+    font-family: 'Space Grotesk', sans-serif;
+    font-weight: 800;
+    background: var(--gradient-primary);
+    -webkit-background-clip: text;
+    background-clip: text;
+    color: transparent;
+    line-height: 1;
+  }
+
+  /* ===== Marquee (logo ticker) helpers ===== */
+  .ticker-pill {
+    @apply inline-flex items-center gap-2 rounded-full border border-border bg-card/60 px-4 py-2 text-sm font-medium text-foreground/80 whitespace-nowrap;
+  }
 }
