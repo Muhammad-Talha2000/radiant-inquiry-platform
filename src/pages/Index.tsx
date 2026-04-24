@@ -6,7 +6,6 @@ import { SectionHeading } from "@/components/SectionHeading";
 import { LeadForm } from "@/components/LeadForm";
 import { AISearchMockup } from "@/components/AISearchMockup";
 import { ResultsSection } from "@/components/ResultsSection";
-import { ComparisonSection } from "@/components/ComparisonSection";
 import { FaqSection } from "@/components/FaqSection";
 import { IndustriesStrip } from "@/components/IndustriesStrip";
 import { TestimonialsSection } from "@/components/TestimonialsSection";
@@ -16,9 +15,10 @@ import { ProblemSection } from "@/components/ProblemSection";
 import { SolutionSplit } from "@/components/SolutionSplit";
 import { OutcomesSection } from "@/components/OutcomesSection";
 import { FinalCtaBanner } from "@/components/FinalCtaBanner";
+import { HeroAnimatedBg } from "@/components/HeroAnimatedBg";
+import { Roadmap } from "@/components/Roadmap";
 import { Reveal } from "@/components/Reveal";
 import { CAL_LINK } from "@/lib/cal";
-import heroGlow from "@/assets/hero-glow.jpg";
 import {
   Search, Bot, FileText, MapPin, ClipboardCheck, Wrench,
 } from "lucide-react";
@@ -36,8 +36,8 @@ const process = [
   { n: "01", t: "SEO audit & analysis", d: "Full website + competitor diagnosis to find growth gaps." },
   { n: "02", t: "Strategy development", d: "A SEO + AI roadmap aligned to your revenue goals." },
   { n: "03", t: "Implementation", d: "Technical, on-page and content execution every week." },
-  { n: "04", t: "Optimization & ranking growth", d: "Continuous improvements that compound month over month." },
-  { n: "05", t: "Scaling & conversion tracking", d: "Expand keywords, content and pipeline impact." },
+  { n: "04", t: "Optimization & growth", d: "Continuous improvements that compound month over month." },
+  { n: "05", t: "Scaling & tracking", d: "Expand keywords, content and pipeline impact." },
 ];
 
 const Index = () => {
@@ -61,20 +61,9 @@ const Index = () => {
 
       {/* HERO */}
       <section className="relative overflow-hidden isolate">
-        <div className="aurora-bg z-0" aria-hidden />
-        <div
-          className="pointer-events-none absolute inset-0 z-0 opacity-70"
-          style={{
-            backgroundImage: `url(${heroGlow})`,
-            backgroundSize: "cover",
-            backgroundPosition: "center",
-            maskImage: "radial-gradient(ellipse 60% 60% at 50% 40%, black 30%, transparent 80%)",
-            WebkitMaskImage: "radial-gradient(ellipse 60% 60% at 50% 40%, black 30%, transparent 80%)",
-          }}
-          aria-hidden
-        />
+        <HeroAnimatedBg />
 
-        <div className="container pt-12 md:pt-20 pb-24 text-center relative z-10">
+        <div className="container pt-16 md:pt-24 pb-28 text-center relative z-10">
           <div className="inline-flex items-center gap-2 rounded-full border border-border bg-secondary/60 px-3 py-1 text-xs backdrop-blur-md animate-fade-in">
             <span className="grid h-5 w-5 place-items-center rounded-full bg-gradient-primary animate-glow-pulse">
               <Sparkles className="h-3 w-3 text-primary-foreground" />
@@ -82,16 +71,16 @@ const Index = () => {
             <span className="text-muted-foreground">SEO + AI SEO built for business growth</span>
           </div>
 
-          <h1 className="mt-6 font-display text-4xl sm:text-5xl md:text-6xl lg:text-7xl font-bold tracking-tight animate-fade-in">
+          <h1 className="mt-6 font-display text-5xl sm:text-6xl md:text-7xl lg:text-[5.5rem] font-bold tracking-tight leading-[0.95] animate-fade-in">
             <span className="text-gradient">Turn search visibility into</span><br />
             <span className="text-gradient-animated">real business growth.</span>
           </h1>
 
-          <p className="mx-auto mt-6 max-w-2xl text-base md:text-lg text-muted-foreground animate-fade-in">
+          <p className="mx-auto mt-7 max-w-2xl text-lg md:text-xl text-muted-foreground animate-fade-in">
             We help businesses generate more customers through advanced SEO and AI-powered search optimization that improves rankings, traffic, and conversions.
           </p>
 
-          <div className="mt-8 flex flex-col sm:flex-row gap-3 justify-center animate-fade-in">
+          <div className="mt-10 flex flex-col sm:flex-row gap-3 justify-center animate-fade-in">
             <Button asChild variant="hero" size="xl">
               <a href={CAL_LINK} target="_blank" rel="noopener noreferrer">
                 Book a free strategy call <ArrowRight className="h-4 w-4" />
@@ -102,48 +91,48 @@ const Index = () => {
             </Button>
           </div>
 
-          <p className="mt-6 text-xs text-muted-foreground">Trusted by growing brands across 4 continents</p>
+          <p className="mt-7 text-sm text-muted-foreground">Trusted by growing brands across 4 continents</p>
         </div>
       </section>
 
-      {/* TOOL STACK TICKER */}
+      {/* TOOL STACK TICKER (text + icon pills) */}
       <LogoTicker />
 
       {/* INDUSTRIES strip */}
       <IndustriesStrip />
 
-      {/* WHO IT'S FOR */}
+      {/* WHO IT'S FOR (2 per row) */}
       <WhoForSection />
 
-      {/* PROBLEM */}
+      {/* PROBLEM (animated infographic cards) */}
       <ProblemSection />
 
-      {/* SOLUTION SPLIT (SEO + AI SEO) */}
+      {/* SOLUTION SPLIT — tabs, borders, larger fonts */}
       <SolutionSplit />
 
-      {/* AI SEARCH MOCKUP */}
+      {/* AI SEARCH MOCKUP — businesses + e-commerce */}
       <AISearchMockup />
 
-      {/* SERVICES PREVIEW */}
-      <section id="services" className="container py-20">
+      {/* SERVICES PREVIEW (bigger text) */}
+      <section id="services" className="container py-24">
         <SectionHeading
           eyebrow="Services preview"
           title={<>A full <span className="text-gradient-primary">search growth system</span></>}
           description="Pick a single service or combine them into a complete SEO + AI SEO engine."
         />
 
-        <div className="mt-14 grid md:grid-cols-2 lg:grid-cols-3 gap-5">
+        <div className="mt-14 grid md:grid-cols-2 lg:grid-cols-3 gap-6">
           {services.map((s, i) => (
-            <Reveal key={s.title} delay={i * 70}>
-              <Link to="/services" className="block h-full">
-                <div className="glass-card p-6 hover:border-primary/50 hover:-translate-y-1 hover:shadow-glow transition-all duration-500 group h-full">
-                  <div className="grid h-11 w-11 place-items-center rounded-xl bg-gradient-primary shadow-glow mb-4 group-hover:scale-110 group-hover:rotate-3 transition-transform duration-500">
-                    <s.icon className="h-5 w-5 text-primary-foreground" />
+            <Reveal key={s.title} delay={i * 80}>
+              <Link to="/services" className="block h-full cursor-grow">
+                <div className="glass-card p-8 hover:border-primary/50 hover:-translate-y-1 hover:shadow-glow transition-all duration-500 group h-full">
+                  <div className="grid h-14 w-14 place-items-center rounded-2xl bg-gradient-primary shadow-glow mb-5 group-hover:scale-110 group-hover:rotate-3 transition-transform duration-500">
+                    <s.icon className="h-6 w-6 text-primary-foreground" />
                   </div>
-                  <h3 className="font-display text-lg font-semibold">{s.title}</h3>
-                  <p className="mt-2 text-sm text-muted-foreground">{s.desc}</p>
-                  <div className="mt-4 inline-flex items-center gap-1 text-xs text-primary opacity-0 group-hover:opacity-100 transition-opacity">
-                    Learn more <ArrowRight className="h-3 w-3" />
+                  <h3 className="font-display text-2xl font-bold">{s.title}</h3>
+                  <p className="mt-3 text-base text-muted-foreground leading-relaxed">{s.desc}</p>
+                  <div className="mt-5 inline-flex items-center gap-1.5 text-sm font-semibold text-primary opacity-0 group-hover:opacity-100 transition-opacity">
+                    Learn more <ArrowRight className="h-4 w-4" />
                   </div>
                 </div>
               </Link>
@@ -151,45 +140,32 @@ const Index = () => {
           ))}
         </div>
 
-        <div className="mt-10 text-center">
+        <div className="mt-12 text-center">
           <Button asChild variant="outline" size="lg">
             <Link to="/services">Explore all services <ArrowRight className="h-4 w-4" /></Link>
           </Button>
         </div>
       </section>
 
-      {/* HOW IT WORKS */}
-      <section className="container py-20">
+      {/* HOW IT WORKS — roadmap with arrows */}
+      <section className="container py-24">
         <SectionHeading
           eyebrow="How it works"
-          title="From audit to compounding growth in 5 steps"
+          title={<>From audit to compounding growth in <span className="text-gradient-primary">5 steps</span></>}
         />
-        <div className="mt-14 grid md:grid-cols-2 lg:grid-cols-5 gap-5">
-          {process.map((p, i) => (
-            <Reveal key={p.n} delay={i * 80}>
-              <div className="glass-card p-6 h-full hover:border-primary/40 hover:-translate-y-1 transition-all duration-500">
-                <span className="font-display text-sm text-primary">{p.n}</span>
-                <h3 className="mt-2 font-display text-base font-semibold">{p.t}</h3>
-                <p className="mt-2 text-sm text-muted-foreground">{p.d}</p>
-              </div>
-            </Reveal>
-          ))}
-        </div>
+        <Roadmap steps={process} />
       </section>
 
-      {/* BUSINESS OUTCOMES */}
+      {/* BUSINESS OUTCOMES — E-com row + Local row, no SaaS */}
       <OutcomesSection />
 
-      {/* CASE STUDY PREVIEW (RESULTS) */}
+      {/* CASE STUDY PREVIEW (RESULTS) — bigger, animated stats + tabs */}
       <ResultsSection />
-      <div className="container -mt-8 mb-12 text-center">
+      <div className="container -mt-8 mb-16 text-center">
         <Button asChild variant="outline" size="lg">
           <Link to="/case-studies">View case studies <ArrowRight className="h-4 w-4" /></Link>
         </Button>
       </div>
-
-      {/* COMPARISON */}
-      <ComparisonSection />
 
       {/* TESTIMONIALS */}
       <TestimonialsSection />
@@ -197,9 +173,9 @@ const Index = () => {
       {/* FAQ */}
       <FaqSection />
 
-      {/* LEAD GENERATION */}
-      <section className="container py-20">
-        <div className="grid lg:grid-cols-2 gap-10 items-center">
+      {/* LEAD GENERATION (bigger text) */}
+      <section className="container py-24">
+        <div className="grid lg:grid-cols-2 gap-12 items-center">
           <SectionHeading
             align="left"
             eyebrow="Free growth plan"

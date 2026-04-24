@@ -76,44 +76,45 @@ export const LeadForm = ({ ctaLabel = "Get my free audit", compact = false }: Le
         const first = Object.values(errs)[0];
         if (first?.message) toast.error(String(first.message));
       })}
-      className={compact ? "space-y-4" : "glass-card p-6 md:p-8 space-y-5"}
+      className={compact ? "space-y-5" : "glass-card p-8 md:p-10 space-y-6"}
       noValidate
     >
-      <div className="grid gap-4 md:grid-cols-2">
+      <div className="grid gap-5 md:grid-cols-2">
         <div className="space-y-2">
-          <Label htmlFor="name">Name</Label>
-          <Input id="name" placeholder="Jane Doe" maxLength={80} {...register("name")} />
-          {errors.name && <p className="text-xs text-destructive">{errors.name.message}</p>}
+          <Label htmlFor="name" className="text-base">Name</Label>
+          <Input id="name" placeholder="Jane Doe" maxLength={80} className="h-12 text-base" {...register("name")} />
+          {errors.name && <p className="text-sm text-destructive">{errors.name.message}</p>}
         </div>
         <div className="space-y-2">
-          <Label htmlFor="email">Email</Label>
-          <Input id="email" type="email" placeholder="jane@company.com" maxLength={255} {...register("email")} />
-          {errors.email && <p className="text-xs text-destructive">{errors.email.message}</p>}
+          <Label htmlFor="email" className="text-base">Email</Label>
+          <Input id="email" type="email" placeholder="jane@company.com" maxLength={255} className="h-12 text-base" {...register("email")} />
+          {errors.email && <p className="text-sm text-destructive">{errors.email.message}</p>}
         </div>
       </div>
 
       <div className="space-y-2">
-        <Label htmlFor="website">Website (optional)</Label>
-        <Input id="website" placeholder="https://yourcompany.com" maxLength={255} {...register("website")} />
+        <Label htmlFor="website" className="text-base">Website (optional)</Label>
+        <Input id="website" placeholder="https://yourcompany.com" maxLength={255} className="h-12 text-base" {...register("website")} />
       </div>
 
       <div className="space-y-2">
-        <Label htmlFor="message">How can we help?</Label>
+        <Label htmlFor="message" className="text-base">How can we help?</Label>
         <Textarea
           id="message"
           placeholder="Tell us about your goals, current traffic, and what you'd like to improve."
           rows={5}
           maxLength={1500}
+          className="text-base"
           {...register("message")}
         />
-        {errors.message && <p className="text-xs text-destructive">{errors.message.message}</p>}
+        {errors.message && <p className="text-sm text-destructive">{errors.message.message}</p>}
       </div>
 
-      <Button type="submit" variant="hero" size="lg" disabled={isSubmitting} className="w-full">
+      <Button type="submit" variant="hero" size="xl" disabled={isSubmitting} className="w-full text-base">
         {isSubmitting ? "Sending…" : ctaLabel}
-        <Send className="h-4 w-4" />
+        <Send className="h-5 w-5" />
       </Button>
-      <p className="text-xs text-muted-foreground text-center">
+      <p className="text-sm text-muted-foreground text-center">
         We reply within 24h. No spam, ever.
       </p>
     </form>
