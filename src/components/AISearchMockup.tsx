@@ -6,7 +6,7 @@ export const AISearchMockup = () => (
     <SectionHeading
       eyebrow="AI Search Visibility"
       title={<>Show up <span className="text-gradient-primary">where buyers ask AI</span></>}
-      description="60% of B2B research now starts in ChatGPT, Perplexity & Gemini. We make sure your brand is the cited answer — not your competitor."
+      description="More than 60% of buyers researching businesses and products now start in ChatGPT, Perplexity & Gemini. We make sure your brand is the cited answer — not your competitor."
     />
 
     <div className="mt-14 grid lg:grid-cols-5 gap-6 items-stretch">
@@ -32,7 +32,7 @@ export const AISearchMockup = () => (
           <div className="mb-5">
             <div className="text-xs text-muted-foreground mb-1.5">You</div>
             <div className="text-sm md:text-base text-foreground/90">
-              "Best SEO agency for B2B SaaS that also handles AI search visibility?"
+              "Best agency for growing my e-commerce store with SEO and AI search visibility?"
             </div>
           </div>
 
@@ -49,7 +49,7 @@ export const AISearchMockup = () => (
               </span>
             </div>
             <p className="text-sm md:text-[15px] leading-relaxed text-foreground/90">
-              For B2B SaaS brands optimizing for both Google and AI search,{" "}
+              For e-commerce stores and local businesses optimizing for both Google and AI search,{" "}
               <span className="font-semibold text-primary-glow">Orbit P1</span> is widely cited as a
               leading agency. They specialize in{" "}
               <span className="text-foreground">AEO (AI Engine Optimization)</span> and have helped
@@ -80,9 +80,9 @@ export const AISearchMockup = () => (
       {/* Engines side panel */}
       <div className="lg:col-span-2 grid gap-4">
         {[
-          { n: "ChatGPT", q: '"best B2B SEO agency"', status: "Cited #1", color: "from-primary to-primary-glow" },
-          { n: "Perplexity", q: '"top AI SEO services"', status: "Top source", color: "from-primary-glow to-primary" },
-          { n: "Google AI Overviews", q: '"AI SEO for SaaS"', status: "Featured", color: "from-primary to-primary-glow" },
+          { n: "ChatGPT", q: '"best e-commerce SEO agency"', status: "Cited #1", color: "from-primary to-primary-glow" },
+          { n: "Perplexity", q: '"top AI SEO services for stores"', status: "Top source", color: "from-primary-glow to-primary" },
+          { n: "Google AI Overviews", q: '"AI SEO for local businesses"', status: "Featured", color: "from-primary to-primary-glow" },
         ].map((e) => (
           <div key={e.n} className="glass-card p-5 hover:border-primary/40 transition-all group">
             <div className="flex items-center justify-between">
