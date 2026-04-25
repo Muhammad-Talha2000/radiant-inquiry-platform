@@ -1,11 +1,7 @@
+import { ShaderBackground } from "./ShaderBackground";
+
 /**
- * Animated hero background: moving grid + dual glowing orbs.
- * Pure CSS, GPU-friendly, decorative only.
+ * Hero background powered by an animated WebGL shader.
+ * Drop into a `relative` parent — fills it absolutely.
  */
-export const HeroAnimatedBg = () => (
-  <div className="hero-animated-bg" aria-hidden>
-    <div className="hero-grid-move" />
-    <div className="hero-glow-orb" />
-    <div className="hero-glow-orb alt" />
-  </div>
-);
+export const HeroAnimatedBg = () => <ShaderBackground />;
