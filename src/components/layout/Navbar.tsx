@@ -4,15 +4,11 @@ import { Menu, X } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { cn } from "@/lib/utils";
 import { CAL_LINK } from "@/lib/cal";
-import logoOrbit from "@/assets/logo-orbit-p1-v2-growth.png";
+import logoOrbit from "@/assets/logo.jpeg";
 
 const links = [
   { to: "/", label: "Home" },
-  { to: "/about", label: "About" },
   { to: "/services", label: "Services" },
-  { to: "/case-studies", label: "Case Studies" },
-  { to: "/blog", label: "Blog" },
-  { to: "/contact", label: "Contact" },
 ];
 
 export const Navbar = () => {
