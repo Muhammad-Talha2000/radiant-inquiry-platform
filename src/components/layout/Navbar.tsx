@@ -26,7 +26,8 @@ export const Navbar = () => {
             <img
               src={logoOrbit}
               alt="Orbit P1"
-              className="h-12 md:h-14 w-auto object-contain mix-blend-screen"
+              className="h-12 md:h-14 w-auto object-contain mix-blend-lighten"
+              style={{ filter: "contrast(1.05)" }}
             />
           </Link>
 

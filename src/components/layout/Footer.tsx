@@ -1,6 +1,6 @@
 import { Link } from "react-router-dom";
 import { Linkedin, Twitter, Github } from "lucide-react";
-import logoOrbit from "@/assets/logo-orbit-p1-v2-growth.png";
+import logoOrbit from "@/assets/logo.jpeg";
 
 export const Footer = () => {
   return (
@@ -12,7 +12,8 @@ export const Footer = () => {
               <img
                 src={logoOrbit}
                 alt="Orbit P1"
-                className="h-16 w-auto object-contain mix-blend-screen"
+                className="h-16 w-auto object-contain mix-blend-lighten"
+                style={{ filter: "contrast(1.05)" }}
               />
             </Link>
             <p className="text-sm text-muted-foreground max-w-sm">
