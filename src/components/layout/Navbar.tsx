@@ -4,7 +4,7 @@ import { Menu, X } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { cn } from "@/lib/utils";
 import { CAL_LINK } from "@/lib/cal";
-import logoOrbit from "@/assets/logo.jpeg";
+import logoOrbit from "@/assets/logo-orbit.png";
 
 const links = [
   { to: "/", label: "Home" },
@@ -26,8 +26,7 @@ export const Navbar = () => {
             <img
               src={logoOrbit}
               alt="Orbit P1"
-              className="h-12 md:h-14 w-auto object-contain mix-blend-lighten"
-              style={{ filter: "contrast(1.05)" }}
+              className="h-12 md:h-14 w-auto object-contain"
             />
           </Link>
 
