@@ -3,8 +3,8 @@ import * as THREE from "three";
 
 /**
  * Animated aurora-style WebGL shader background.
- * Adapted from 21st.dev animated-shader-background by minhxthanh.
- * Renders absolutely-positioned canvas filling its parent.
+ * Pauses rendering when off-screen and respects prefers-reduced-motion / mobile
+ * to keep scroll performance smooth.
  */
 export const ShaderBackground = () => {
   const containerRef = useRef<HTMLDivElement>(null);
@@ -13,10 +13,19 @@ export const ShaderBackground = () => {
     const container = containerRef.current;
     if (!container) return;
 
+    // Respect reduced motion — skip WebGL entirely.
+    const reduceMotion = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
+    if (reduceMotion) return;
+
     const scene = new THREE.Scene();
     const camera = new THREE.OrthographicCamera(-1, 1, 1, -1, 0, 1);
-    const renderer = new THREE.WebGLRenderer({ antialias: true, alpha: true });
-    renderer.setPixelRatio(Math.min(window.devicePixelRatio, 2));
+    const renderer = new THREE.WebGLRenderer({
+      antialias: false,
+      alpha: true,
+      powerPreference: "high-performance",
+    });
+    // Cap pixel ratio aggressively — shader is fragment-heavy.
+    renderer.setPixelRatio(Math.min(window.devicePixelRatio, 1.25));
 
     const setSize = () => {
       const w = container.clientWidth || window.innerWidth;
@@ -36,10 +45,11 @@ export const ShaderBackground = () => {
         }
       `,
       fragmentShader: /* glsl */ `
+        precision mediump float;
         uniform float iTime;
         uniform vec2 iResolution;
 
-        #define NUM_OCTAVES 3
+        #define NUM_OCTAVES 2
 
         float rand(vec2 n) {
           return fract(sin(dot(n, vec2(12.9898, 4.1414))) * 43758.5453);
@@ -69,17 +79,15 @@ export const ShaderBackground = () => {
         }
 
         void main() {
-          vec2 shake = vec2(sin(iTime * 1.4) * 0.005, cos(iTime * 2.5) * 0.005);
-          vec2 p = ((gl_FragCoord.xy + shake * iResolution.xy) - iResolution.xy * 0.5) / iResolution.y * mat2(6.0, -4.0, 4.0, 6.0);
+          vec2 p = (gl_FragCoord.xy - iResolution.xy * 0.5) / iResolution.y * mat2(6.0, -4.0, 4.0, 6.0);
           vec2 v;
           vec4 o = vec4(0.0);
 
           float f = 2.0 + fbm(p + vec2(iTime * 6.0, 0.0)) * 0.5;
 
-          for (float i = 0.0; i < 35.0; i++) {
-            v = p + cos(i * i + (iTime + p.x * 0.08) * 0.025 + i * vec2(13.0, 11.0)) * 3.5
-                  + vec2(sin(iTime * 4.0 + i) * 0.003, cos(iTime * 4.6 - i) * 0.003);
-            float tailNoise = fbm(v + vec2(iTime * 0.5, i)) * 0.3 * (1.0 - (i / 35.0));
+          // Reduced from 35 to 18 iterations — biggest perf win.
+          for (float i = 0.0; i < 18.0; i++) {
+            v = p + cos(i * i + (iTime + p.x * 0.08) * 0.025 + i * vec2(13.0, 11.0)) * 3.5;
             vec4 auroraColors = vec4(
               0.1 + 0.3 * sin(i * 0.2 + iTime * 0.4),
               0.3 + 0.5 * cos(i * 0.3 + iTime * 0.5),
@@ -88,11 +96,11 @@ export const ShaderBackground = () => {
             );
             vec4 currentContribution = auroraColors * exp(sin(i * i + iTime * 0.8))
               / length(max(v, vec2(v.x * f * 0.015, v.y * 1.5)));
-            float thinnessFactor = smoothstep(0.0, 1.0, i / 35.0) * 0.6;
-            o += currentContribution * (1.0 + tailNoise * 0.8) * thinnessFactor;
+            float thinnessFactor = smoothstep(0.0, 1.0, i / 18.0) * 0.6;
+            o += currentContribution * thinnessFactor;
           }
 
-          o = tanh(pow(o / 100.0, vec4(1.6)));
+          o = tanh(pow(o / 50.0, vec4(1.6)));
           gl_FragColor = o * 1.5;
         }
       `,
@@ -112,12 +120,37 @@ export const ShaderBackground = () => {
     setSize();
 
     let raf = 0;
-    const animate = () => {
-      material.uniforms.iTime.value += 0.028;
-      renderer.render(scene, camera);
+    let isVisible = true;
+    let isTabActive = true;
+    let lastTime = performance.now();
+
+    const animate = (now: number) => {
       raf = requestAnimationFrame(animate);
+      if (!isVisible || !isTabActive) return;
+
+      // Throttle to ~30fps — visually fine for ambient bg, halves GPU cost.
+      const dt = now - lastTime;
+      if (dt < 33) return;
+      lastTime = now;
+
+      material.uniforms.iTime.value += 0.028 * (dt / 16.67);
+      renderer.render(scene, camera);
     };
-    animate();
+    raf = requestAnimationFrame(animate);
+
+    // Pause when hero scrolled out of view.
+    const io = new IntersectionObserver(
+      (entries) => {
+        isVisible = entries[0]?.isIntersecting ?? true;
+      },
+      { threshold: 0 }
+    );
+    io.observe(container);
+
+    const onVisibility = () => {
+      isTabActive = !document.hidden;
+    };
+    document.addEventListener("visibilitychange", onVisibility);
 
     const ro = new ResizeObserver(setSize);
     ro.observe(container);
@@ -125,7 +158,9 @@ export const ShaderBackground = () => {
 
     return () => {
       cancelAnimationFrame(raf);
+      io.disconnect();
       ro.disconnect();
+      document.removeEventListener("visibilitychange", onVisibility);
       window.removeEventListener("resize", setSize);
       if (renderer.domElement.parentNode === container) {
         container.removeChild(renderer.domElement);
@@ -142,8 +177,6 @@ export const ShaderBackground = () => {
       aria-hidden
       className="absolute inset-0 -z-10 overflow-hidden bg-background"
     >
-      {/* canvas injected here */}
-      {/* Soft fade to background at edges for blend */}
       <div className="pointer-events-none absolute inset-0 bg-gradient-to-b from-transparent via-transparent to-background" />
     </div>
   );
