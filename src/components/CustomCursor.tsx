@@ -31,10 +31,10 @@ export const CustomCursor = () => {
       ry += (my - ry) * 0.18;
       if (dirty || Math.abs(mx - rx) > 0.1 || Math.abs(my - ry) > 0.1) {
         if (dotRef.current) {
-          dotRef.current.style.transform = `translate3d(${mx}px, ${my}px, 0) translate(-50%, -50%)`;
+          dotRef.current.style.transform = `translate3d(${mx}px, ${my}px, 0)`;
         }
         if (ringRef.current) {
-          ringRef.current.style.transform = `translate3d(${rx}px, ${ry}px, 0) translate(-50%, -50%)`;
+          ringRef.current.style.transform = `translate3d(${rx}px, ${ry}px, 0)`;
         }
         dirty = false;
       }
