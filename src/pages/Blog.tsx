@@ -1,18 +1,18 @@
 import { Link } from "react-router-dom";
-import { useQuery } from "@tanstack/react-query";
 import { Seo } from "@/components/Seo";
 import { SectionHeading } from "@/components/SectionHeading";
 import { Button } from "@/components/ui/button";
 import { ArrowRight, Calendar } from "lucide-react";
-import { sanityClient, urlFor, POSTS_QUERY, type SanityPost } from "@/lib/sanity";
 
-const fallbackPosts: Array<{
+type Post = {
   slug: string;
   title: string;
   excerpt: string;
   date: string;
   category: string;
-}> = [
+};
+
+const posts: Post[] = [
   {
     slug: "ai-seo-vs-traditional-seo",
     title: "AI SEO vs Traditional SEO: What actually changes in 2026",
@@ -32,52 +32,38 @@ const fallbackPosts: Array<{
   {
     slug: "technical-seo-checklist-2026",
     title: "The 2026 technical SEO checklist",
-    excerpt: "Core Web Vitals, crawl budget, schema, and the modern technical foundations that matter.",
+    excerpt:
+      "Core Web Vitals, crawl budget, schema, and the modern technical foundations that matter.",
     date: "Mar 22, 2026",
     category: "Technical",
   },
   {
     slug: "content-engine-that-converts",
     title: "Building a content engine that converts",
-    excerpt: "A system for shipping conversion-focused SEO content every week — without burning out.",
+    excerpt:
+      "A system for shipping conversion-focused SEO content every week — without burning out.",
     date: "Mar 10, 2026",
     category: "Content",
   },
   {
     slug: "linkbuilding-without-spam",
     title: "Modern link building without the spam",
-    excerpt: "Editorial outreach, digital PR and the strategies that earn real authority.",
+    excerpt:
+      "Editorial outreach, digital PR and the strategies that earn real authority in 2026.",
     date: "Feb 28, 2026",
     category: "Authority",
   },
   {
     slug: "saas-seo-playbook",
     title: "The SaaS SEO playbook for 2026",
-    excerpt: "From bottom-of-funnel keywords to product-led content — what works for modern SaaS.",
+    excerpt:
+      "From bottom-of-funnel keywords to product-led content — what works for modern SaaS.",
     date: "Feb 14, 2026",
     category: "SaaS",
   },
 ];
 
-const formatDate = (iso?: string) => {
-  if (!iso) return "";
-  return new Date(iso).toLocaleDateString("en-US", {
-    month: "short",
-    day: "2-digit",
-    year: "numeric",
-  });
-};
-
 const Blog = () => {
-  const { data, isLoading } = useQuery({
-    queryKey: ["sanity-posts"],
-    queryFn: () => sanityClient.fetch<SanityPost[]>(POSTS_QUERY),
-    staleTime: 60_000,
-  });
-
-  const cmsPosts = data ?? [];
-  const showCms = cmsPosts.length > 0;
-
   return (
     <>
       <Seo
@@ -99,71 +85,30 @@ const Blog = () => {
       </section>
 
       <section className="container py-12">
-        {isLoading ? (
-          <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-5">
-            {Array.from({ length: 6 }).map((_, i) => (
-              <div key={i} className="glass-card p-6 h-56 animate-pulse" />
-            ))}
-          </div>
-        ) : showCms ? (
-          <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-5">
-            {cmsPosts.map((p) => (
-              <article
-                key={p._id}
-                className="glass-card p-6 flex flex-col group hover:border-primary/40 transition-all overflow-hidden"
-              >
-                {p.mainImage && (
-                  <img
-                    src={urlFor(p.mainImage).width(640).height(360).url()}
-                    alt={p.title}
-                    loading="lazy"
-                    className="-mx-6 -mt-6 mb-4 h-40 w-[calc(100%+3rem)] object-cover"
-                  />
-                )}
-                <div className="flex items-center gap-2 text-xs text-muted-foreground">
-                  {p.category && (
-                    <span className="rounded-full bg-secondary px-2.5 py-0.5 text-foreground">{p.category}</span>
-                  )}
-                  {p.publishedAt && (
-                    <span className="inline-flex items-center gap-1">
-                      <Calendar className="h-3 w-3" /> {formatDate(p.publishedAt)}
-                    </span>
-                  )}
-                </div>
-                <h2 className="mt-4 font-display text-lg font-semibold leading-snug group-hover:text-gradient-primary transition-colors">
-                  {p.title}
-                </h2>
-                {p.excerpt && <p className="mt-2 text-sm text-muted-foreground flex-1">{p.excerpt}</p>}
-                <span className="mt-5 inline-flex items-center gap-1 text-sm text-primary self-start">
-                  Read article <ArrowRight className="h-3.5 w-3.5" />
+        <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-5">
+          {posts.map((p) => (
+            <article
+              key={p.slug}
+              className="glass-card p-6 flex flex-col group hover:border-primary/40 transition-all"
+            >
+              <div className="flex items-center gap-2 text-xs text-muted-foreground">
+                <span className="rounded-full bg-secondary px-2.5 py-0.5 text-foreground">
+                  {p.category}
                 </span>
-              </article>
-            ))}
-          </div>
-        ) : (
-          <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-5">
-            {fallbackPosts.map((p) => (
-              <article
-                key={p.slug}
-                className="glass-card p-6 flex flex-col group hover:border-primary/40 transition-all"
-              >
-                <div className="flex items-center gap-2 text-xs text-muted-foreground">
-                  <span className="rounded-full bg-secondary px-2.5 py-0.5 text-foreground">{p.category}</span>
-                  <span className="inline-flex items-center gap-1">
-                    <Calendar className="h-3 w-3" /> {p.date}
-                  </span>
-                </div>
-                <h2 className="mt-4 font-display text-lg font-semibold leading-snug group-hover:text-gradient-primary transition-colors">
-                  {p.title}
-                </h2>
-                <p className="mt-2 text-sm text-muted-foreground flex-1">{p.excerpt}</p>
-                <span className="mt-5 inline-flex items-center gap-1 text-sm text-primary self-start">
-                  Read article <ArrowRight className="h-3.5 w-3.5" />
+                <span className="inline-flex items-center gap-1">
+                  <Calendar className="h-3 w-3" /> {p.date}
                 </span>
-              </article>
-            ))}
-          </div>
-        )}
+              </div>
+              <h2 className="mt-4 font-display text-lg font-semibold leading-snug group-hover:text-gradient-primary transition-colors">
+                {p.title}
+              </h2>
+              <p className="mt-2 text-sm text-muted-foreground flex-1">{p.excerpt}</p>
+              <span className="mt-5 inline-flex items-center gap-1 text-sm text-primary self-start">
+                Read article <ArrowRight className="h-3.5 w-3.5" />
+              </span>
+            </article>
+          ))}
+        </div>
       </section>
 
       <section className="container py-20">
