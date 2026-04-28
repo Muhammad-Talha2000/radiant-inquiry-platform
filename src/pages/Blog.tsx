@@ -2,66 +2,8 @@ import { Link } from "react-router-dom";
 import { Seo } from "@/components/Seo";
 import { SectionHeading } from "@/components/SectionHeading";
 import { Button } from "@/components/ui/button";
-import { ArrowRight, Calendar } from "lucide-react";
-
-type Post = {
-  slug: string;
-  title: string;
-  excerpt: string;
-  date: string;
-  category: string;
-};
-
-const posts: Post[] = [
-  {
-    slug: "ai-seo-vs-traditional-seo",
-    title: "AI SEO vs Traditional SEO: What actually changes in 2026",
-    excerpt:
-      "How generative search engines like ChatGPT and Perplexity reshape SEO strategy — and what stays the same.",
-    date: "Apr 12, 2026",
-    category: "AI SEO",
-  },
-  {
-    slug: "rank-in-ai-overviews",
-    title: "How to rank in Google AI Overviews",
-    excerpt:
-      "A practical playbook for getting cited in Google's AI Overviews using entity SEO and structured content.",
-    date: "Apr 02, 2026",
-    category: "Strategy",
-  },
-  {
-    slug: "technical-seo-checklist-2026",
-    title: "The 2026 technical SEO checklist",
-    excerpt:
-      "Core Web Vitals, crawl budget, schema, and the modern technical foundations that matter.",
-    date: "Mar 22, 2026",
-    category: "Technical",
-  },
-  {
-    slug: "content-engine-that-converts",
-    title: "Building a content engine that converts",
-    excerpt:
-      "A system for shipping conversion-focused SEO content every week — without burning out.",
-    date: "Mar 10, 2026",
-    category: "Content",
-  },
-  {
-    slug: "linkbuilding-without-spam",
-    title: "Modern link building without the spam",
-    excerpt:
-      "Editorial outreach, digital PR and the strategies that earn real authority in 2026.",
-    date: "Feb 28, 2026",
-    category: "Authority",
-  },
-  {
-    slug: "saas-seo-playbook",
-    title: "The SaaS SEO playbook for 2026",
-    excerpt:
-      "From bottom-of-funnel keywords to product-led content — what works for modern SaaS.",
-    date: "Feb 14, 2026",
-    category: "SaaS",
-  },
-];
+import { ArrowRight, Calendar, Clock3 } from "lucide-react";
+import { blogPosts } from "@/data/blogPosts";
 
 const Blog = () => {
   return (
@@ -77,35 +19,38 @@ const Blog = () => {
           Insights
         </span>
         <h1 className="mt-5 font-display text-4xl md:text-6xl font-bold text-gradient">
-          SEO & AI SEO <span className="text-gradient-primary">playbooks</span>
+          Insights & <span className="text-gradient-primary">Resources</span>
         </h1>
         <p className="mx-auto mt-5 max-w-2xl text-muted-foreground">
-          No fluff. Just the strategies, frameworks and breakdowns we use to grow brands in modern search.
+          Expert strategies on SEO, AI search, and business growth
         </p>
       </section>
 
       <section className="container py-12">
         <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-5">
-          {posts.map((p) => (
+          {blogPosts.map((p) => (
             <article
               key={p.slug}
-              className="glass-card p-6 flex flex-col group hover:border-primary/40 transition-all"
+              className="glass-card p-6 flex flex-col group hover:border-primary/40 hover:-translate-y-1 hover:shadow-glow transition-all duration-500"
             >
-              <div className="flex items-center gap-2 text-xs text-muted-foreground">
+              <div className="flex flex-wrap items-center gap-2 text-xs text-muted-foreground">
                 <span className="rounded-full bg-secondary px-2.5 py-0.5 text-foreground">
                   {p.category}
                 </span>
                 <span className="inline-flex items-center gap-1">
                   <Calendar className="h-3 w-3" /> {p.date}
                 </span>
+                <span className="inline-flex items-center gap-1">
+                  <Clock3 className="h-3 w-3" /> {p.readTime}
+                </span>
               </div>
               <h2 className="mt-4 font-display text-lg font-semibold leading-snug group-hover:text-gradient-primary transition-colors">
                 {p.title}
               </h2>
               <p className="mt-2 text-sm text-muted-foreground flex-1">{p.excerpt}</p>
-              <span className="mt-5 inline-flex items-center gap-1 text-sm text-primary self-start">
-                Read article <ArrowRight className="h-3.5 w-3.5" />
-              </span>
+              <Link to={`/blog/${p.slug}`} className="mt-5 inline-flex items-center gap-1 text-sm text-primary self-start">
+                Read More <ArrowRight className="h-3.5 w-3.5" />
+              </Link>
             </article>
           ))}
         </div>
