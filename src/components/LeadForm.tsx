@@ -37,23 +37,34 @@ export const LeadForm = ({ ctaLabel = "Get my free audit", compact = false }: Le
   });
 
   const onSubmit = async (data: FormValues) => {
+    const serviceId = import.meta.env.VITE_EMAILJS_SERVICE_ID as string | undefined;
+    const templateId = import.meta.env.VITE_EMAILJS_TEMPLATE_ID as string | undefined;
+    const publicKey = import.meta.env.VITE_EMAILJS_PUBLIC_KEY as string | undefined;
+
     try {
-      // Wire to Resend edge function (supabase/functions/send-lead-email).
-      // Until Lovable Cloud + Resend are connected, this falls back to a local success state.
-      const res = await fetch("/api/send-lead-email", {
-        method: "POST",
-        headers: { "Content-Type": "application/json" },
-        body: JSON.stringify(data),
-      }).catch(() => null);
+      if (!serviceId || !templateId || !publicKey) {
+        throw new Error("EmailJS is not configured");
+      }
 
-      if (res && !res.ok) throw new Error("Failed to send");
+      await emailjs.send(
+        serviceId,
+        templateId,
+        {
+          from_name: data.name,
+          from_email: data.email,
+          reply_to: data.email,
+          website: data.website || "—",
+          message: data.message,
+          to_email: "hello@orbitp1.com",
+        },
+        { publicKey },
+      );
 
       setDone(true);
       toast.success("Thanks! We'll be in touch within 24 hours.");
-    } catch {
-      // Fallback while backend is not yet wired
-      setDone(true);
-      toast.success("Thanks! We'll be in touch within 24 hours.");
+    } catch (err) {
+      console.error("Lead form submission failed:", err);
+      toast.error("Couldn't send your message. Please email hello@orbitp1.com directly.");
     }
   };
 
