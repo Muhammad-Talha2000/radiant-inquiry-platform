@@ -12,7 +12,7 @@ export const Footer = () => {
               <img
                 src={logoOrbit}
                 alt="Orbit P1"
-                className="h-16 w-auto object-contain"
+                className="h-20 w-auto object-contain"
               />
             </Link>
             <p className="text-sm text-muted-foreground max-w-sm">

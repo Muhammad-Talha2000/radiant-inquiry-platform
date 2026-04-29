@@ -26,7 +26,7 @@ export const Navbar = () => {
             <img
               src={logoOrbit}
               alt="Orbit P1"
-              className="h-12 md:h-14 w-auto object-contain"
+              className="h-16 md:h-20 w-auto object-contain"
             />
           </Link>
 
