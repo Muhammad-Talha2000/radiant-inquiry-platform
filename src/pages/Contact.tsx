@@ -23,7 +23,7 @@ const Contact = () => (
       <div className="mt-7">
         <Button asChild variant="hero" size="lg">
           <a href={CAL_LINK} target="_blank" rel="noopener noreferrer">
-            <Calendar className="h-4 w-4" /> Book a call on Cal.com
+            <Calendar className="h-4 w-4" /> Book a call
           </a>
         </Button>
       </div>
@@ -32,8 +32,8 @@ const Contact = () => (
     <section className="container py-12 grid lg:grid-cols-5 gap-8">
       <div className="lg:col-span-2 space-y-4">
         {[
-          { i: Mail, t: "Email", d: "hello@orbitp1.com", href: "mailto:hello@orbitp1.com" },
-          { i: MessageCircle, t: "WhatsApp", d: "+1 (555) 123-4567", href: "https://wa.me/15551234567" },
+          { i: Mail, t: "Email", d: "subhan.bhadelia@gmail.com", href: "mailto:subhan.bhadelia@gmail.com" },
+          { i: MessageCircle, t: "WhatsApp", d: "+27 839729003", href: "https://wa.me/27839729003" },
           { i: Clock, t: "Response time", d: "Within 24 hours, every weekday" },
           { i: MapPin, t: "Working globally", d: "Remote team across 6 timezones" },
         ].map((c) => (
