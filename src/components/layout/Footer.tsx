@@ -48,7 +48,7 @@ export const Footer = () => {
             <ul className="space-y-2 text-sm text-muted-foreground">
               <li><Link to="/contact" className="hover:text-foreground">Free SEO audit</Link></li>
               <li><Link to="/contact" className="hover:text-foreground">Book a call</Link></li>
-              <li><a href="mailto:hello@orbitp1.com" className="hover:text-foreground">hello@orbitp1.com</a></li>
+              <li><a href="mailto:hello@orbitp1.com" className="hover:text-foreground">subhan.bhadelia@gmail.com</a></li>
             </ul>
           </div>
         </div>
